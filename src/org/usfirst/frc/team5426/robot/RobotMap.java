@@ -16,8 +16,17 @@ public class RobotMap {
 
     //Port: CAN
     //Type: DRIVETRAIN MOTORS TALONS SRX
-    public static final int cLeftMotor = 2;
-    public static final int cLeftBackMotor = 4;
-    public static final int cRightMotor = 3;
-    public static final int cRightBackMotor = 1;
+    public static final int LEFT_MOTOR = 2;
+    public static final int LEFT_BACK_MOTOR = 4;
+    public static final int RIGHT_MOTOR = 3;
+    public static final int RIGHT_BACK_MOTOR = 1;
+    
+    //Port: PWN
+    //Type: SHOOTER MOTORS TALONS
+    public static final int LEFT_SPINNER = 0;
+    public static final int RIGHT_SPINNER = 1;
+    
+    public static final int ULTRA_ECHO = 0;
+    public static final int ULTRA_PULSE = 1;
+
 }
