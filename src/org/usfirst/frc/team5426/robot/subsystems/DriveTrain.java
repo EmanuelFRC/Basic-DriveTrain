@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5426.robot.subsystems;
 
 import org.usfirst.frc.team5426.robot.RobotMap;
+import org.usfirst.frc.team5426.robot.commands.DriveJoystick;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -24,7 +25,7 @@ public class DriveTrain extends Subsystem {
 	private RobotDrive myRobot;
 
 	private BuiltInAccelerometer mBuiltInAccelerometer;
-	private Ultrasonic mUltrasonic;
+	//private Ultrasonic mUltrasonic;
 
 
 	public DriveTrain() {
@@ -46,13 +47,13 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("Accel Y (g)", mBuiltInAccelerometer.getY());
 		SmartDashboard.putNumber("Accel Z (g)", mBuiltInAccelerometer.getZ());
 
-		mUltrasonic = new Ultrasonic(0, 1); // Add right port numbers. Need to use three ports. Trig/Echo/5V + Gnd
-		mUltrasonic.setAutomaticMode(true);
-		SmartDashboard.putNumber("Distance (in)", mUltrasonic.getRangeInches());
+		//mUltrasonic = new Ultrasonic(RobotMap.ULTRA_PULSE, RobotMap.ULTRA_ECHO);
+		//mUltrasonic.setAutomaticMode(true);
+		//SmartDashboard.putNumber("Distance (in)", mUltrasonic.getRangeInches());
 	}
 
 	public void initDefaultCommand() {
-		//setDefaultCommand(new DriveJoystick());
+		setDefaultCommand(new DriveJoystick());
 	}
 
 	/**
@@ -60,21 +61,21 @@ public class DriveTrain extends Subsystem {
 	 * @param leftAxisX Rotate Value from -1 to 1
 	 * @param b Sensitivity
 	 */
-	public void arcadeDrive(double leftAxisY, double leftAxisX, boolean b) {
+	public void customArcadeDrive(double leftAxisY, double leftAxisX, boolean sensitivity) {
 		/*
 			arcadeDrive is a default function that will power the motors in the correct way
 			to get the robot moving based on the joystick input. It will drive exactly how you would
 			expect a car in any video game.
 		*/
-		myRobot.arcadeDrive(leftAxisY, leftAxisX, true);
+		myRobot.arcadeDrive(leftAxisY, leftAxisX, sensitivity);
 	}
 
 	public BuiltInAccelerometer getBuiltInAccelerometer() {
 		return mBuiltInAccelerometer;
 	}
 
-	public Ultrasonic getUltrasonic() {
+	/*public Ultrasonic getUltrasonic() {
 		return mUltrasonic;
-	}
+	}*/
 
 }

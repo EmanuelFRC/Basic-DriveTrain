@@ -69,6 +69,7 @@ public class Robot extends IterativeRobot {
         
         SmartDashboard.putNumber("Left Axis Y", OI.getLeftAxisY());
         SmartDashboard.putNumber("Left Axis X", OI.getLeftAxisX());
+                
     }
     
     /**

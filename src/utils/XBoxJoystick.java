@@ -8,13 +8,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 /*
  * TODO
  * 
- * Change all port numbers to constants
+ * Change all port numbers to constants DONE
  * Add function to filter out ghost values. Do not replace default getAxis functions
  * Add support for dpad and start/select buttons
  * Add limit function. If >1 or <-1 make them 1 or -1
  */
 public class XBoxJoystick extends Joystick {
 
+	private static Joystick stick;
+	
 	private Button buttonA;
 	private Button buttonB;
 	private Button buttonX;
@@ -24,18 +26,31 @@ public class XBoxJoystick extends Joystick {
 	private Button leftStickPress;
 	private Button rightStickPress;
 	
+	// Constant port values
+	private static final int BUTTON_A_PORT = 0;
+	private static final int BUTTON_B_PORT = 1;
+	private static final int BUTTON_X_PORT = 2;
+	private static final int BUTTON_Y_PORT = 3;
+	private static final int LEFT_BUMPER_PORT = 4;
+	private static final int RIGHT_BUMPER_PORT = 5;
+	private static final int LEFT_STICK_PORT = 8;
+	private static final int RIGHT_STICK_PORT = 9;
+	
+	
 	public XBoxJoystick(int port) {
 		super(port);
+		stick = new Joystick(port);
 		
-		buttonA = new JoystickButton(this, 0);
-		buttonB = new JoystickButton(this, 1);
-		buttonX = new JoystickButton(this, 2);
-		buttonY = new JoystickButton(this, 3);
-		leftBumperButton = new JoystickButton(this, 4);
-		rightBumperButton = new JoystickButton(this, 5);
-		leftStickPress = new JoystickButton(this, 8);
-		rightStickPress = new JoystickButton(this, 9);
+		buttonA = new JoystickButton(stick, BUTTON_A_PORT);
+		buttonB = new JoystickButton(stick, BUTTON_B_PORT);
+		buttonX = new JoystickButton(stick, BUTTON_X_PORT);
+		buttonY = new JoystickButton(stick, BUTTON_Y_PORT);
+		leftBumperButton = new JoystickButton(stick, LEFT_BUMPER_PORT);
+		rightBumperButton = new JoystickButton(stick, RIGHT_BUMPER_PORT);
+		leftStickPress = new JoystickButton(stick, LEFT_STICK_PORT);
+		rightStickPress = new JoystickButton(stick, RIGHT_STICK_PORT);
 	}
+	
 
 	public Button getButtonA() {
 		return buttonA;
@@ -73,36 +88,36 @@ public class XBoxJoystick extends Joystick {
      * @return Value of the left analog Y axis
      */
     public double getLeftAxisY(){
-    	return -this.getRawAxis(1);
+    	return -1 * stick.getRawAxis(1);
     }
     
     /**
      * @return Value of the left analog X axis
      */
     public double getLeftAxisX(){
-    	return -this.getRawAxis(0);
+    	return -1* stick.getRawAxis(0);
     }
     
     /**
      * @return Value of the right analog Y axis
      */
     public double getRightAxisY(){
-    	return this.getRawAxis(5);
+    	return stick.getRawAxis(5);
     }
     
     /**
      * @return Value of the right analog X axis
      */
     public double getRightAxisX(){
-    	return this.getRawAxis(4);
+    	return stick.getRawAxis(4);
     }
     
     public double getLeftTrigger(){
-    	return this.getRawAxis(2);
+    	return stick.getRawAxis(2);
     }
     
     public double getRightTrigger(){
-    	return this.getRawAxis(3);
+    	return stick.getRawAxis(3);
     }
 
 }
