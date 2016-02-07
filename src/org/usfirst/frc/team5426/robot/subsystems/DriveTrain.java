@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem {
 
 	private RobotDrive myRobot;
 
-	private BuiltInAccelerometer mBuiltInAccelerometer;
+	private Accelerometer mBuiltInAccelerometer;
 	//private Ultrasonic mUltrasonic;
 
 
