@@ -24,11 +24,6 @@ public abstract class CommandBase extends Command {
 		driveTrain = new DriveTrain();
 		shooter = new Shooter();
 		oi = new OI();
-
-		SmartDashboard.putData("Example Subsystem", exampleSubsystem);
-		SmartDashboard.putData("Drive Train", driveTrain);
-		SmartDashboard.putData("Shooter", shooter);
-
 	}
 
 	public CommandBase(String name) {
@@ -38,4 +33,23 @@ public abstract class CommandBase extends Command {
 	public CommandBase() {
 		super();
 	}
+	
+	public static void updateSmartDashboard() {
+		if (exampleSubsystem != null) {
+			SmartDashboard.putData("Example Subsystem", exampleSubsystem);
+			SmartDashboard.putData("Drive Train", driveTrain);
+			SmartDashboard.putData("Shooter", shooter);
+			
+			SmartDashboard.putNumber("Accel X (g)", driveTrain.getBuiltInAccelerometer().getX());
+			SmartDashboard.putNumber("Accel Y (g)", driveTrain.getBuiltInAccelerometer().getY());
+			SmartDashboard.putNumber("Accel Z (g)", driveTrain.getBuiltInAccelerometer().getZ());
+			
+	        SmartDashboard.putNumber("Left Axis Y", OI.getLeftAxisY());
+	        SmartDashboard.putNumber("Left Axis X", OI.getLeftAxisX());
+
+		} else {
+			init();
+		}
+	}
+	
 }
