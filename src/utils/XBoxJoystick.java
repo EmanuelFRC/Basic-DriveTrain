@@ -27,14 +27,14 @@ public class XBoxJoystick extends Joystick {
 	private Button rightStickPress;
 	
 	// Constant port values
-	private static final int BUTTON_A_PORT = 0;
-	private static final int BUTTON_B_PORT = 1;
-	private static final int BUTTON_X_PORT = 2;
-	private static final int BUTTON_Y_PORT = 3;
-	private static final int LEFT_BUMPER_PORT = 4;
-	private static final int RIGHT_BUMPER_PORT = 5;
-	private static final int LEFT_STICK_PORT = 8;
-	private static final int RIGHT_STICK_PORT = 9;
+	private static final int BUTTON_A_PORT = 1;
+	private static final int BUTTON_B_PORT = 2;
+	private static final int BUTTON_X_PORT = 3;
+	private static final int BUTTON_Y_PORT = 4;
+	private static final int LEFT_BUMPER_PORT = 5;
+	private static final int RIGHT_BUMPER_PORT = 6;
+	private static final int LEFT_STICK_PORT = 9;
+	private static final int RIGHT_STICK_PORT = 10;
 	
 	
 	public XBoxJoystick(int port) {

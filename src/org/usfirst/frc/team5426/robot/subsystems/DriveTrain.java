@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
 public class DriveTrain extends Subsystem {
 
@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem {
 
 	private RobotDrive myRobot;
 
-	private BuiltInAccelerometer mBuiltInAccelerometer;
+	private Accelerometer mBuiltInAccelerometer;
 	//private Ultrasonic mUltrasonic;
 
 
@@ -43,9 +43,6 @@ public class DriveTrain extends Subsystem {
 		myRobot = new RobotDrive(mLeftBackMotor, mLeftMotor, mRightBackMotor, mRightMotor);
 
 		mBuiltInAccelerometer = new BuiltInAccelerometer();
-		SmartDashboard.putNumber("Accel X (g)", mBuiltInAccelerometer.getX());
-		SmartDashboard.putNumber("Accel Y (g)", mBuiltInAccelerometer.getY());
-		SmartDashboard.putNumber("Accel Z (g)", mBuiltInAccelerometer.getZ());
 
 		//mUltrasonic = new Ultrasonic(RobotMap.ULTRA_PULSE, RobotMap.ULTRA_ECHO);
 		//mUltrasonic.setAutomaticMode(true);
@@ -70,7 +67,7 @@ public class DriveTrain extends Subsystem {
 		myRobot.arcadeDrive(leftAxisY, leftAxisX, sensitivity);
 	}
 
-	public BuiltInAccelerometer getBuiltInAccelerometer() {
+	public Accelerometer getBuiltInAccelerometer() {
 		return mBuiltInAccelerometer;
 	}
 

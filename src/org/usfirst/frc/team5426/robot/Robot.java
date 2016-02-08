@@ -66,10 +66,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        
-        SmartDashboard.putNumber("Left Axis Y", OI.getLeftAxisY());
-        SmartDashboard.putNumber("Left Axis X", OI.getLeftAxisX());
-                
+        CommandBase.updateSmartDashboard();
     }
     
     /**
