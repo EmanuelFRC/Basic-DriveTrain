@@ -51,8 +51,8 @@ public class OI {
         ... and more http://wpilib.screenstepslive.com/s/3120/m/7952/l/97457-running-commands-on-joystick-input
         */
 
-    	//buttonA.whileActive(new IntakeBall(1));
-    	//buttonB.whileActive(new ShootBall(1));
+    	buttonA.whileActive(new IntakeBall(1));
+    	buttonB.whileActive(new ShootBall(1));
     	
     	//logitechTrigger.whileActive(new ShootBall(1));
     	//logitechSide.whileActive(new IntakeBall(1));
