@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5426.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5426.robot.commands.IntakeBall;
 import org.usfirst.frc.team5426.robot.commands.ShootBall;
+import org.usfirst.frc.team5426.robot.commands.UpdateConstants;
 import org.usfirst.frc.team5426.robot.triggers.BallNearby;
 
 import utils.XBoxJoystick;
@@ -63,6 +64,8 @@ public class OI {
     	//xBoxJoystick.getButtonA().whileActive(new ExampleCommand());
     	
     	//SmartDashboard.putBoolean("Button A State", xBoxJoystick.getButtonA().get());
+    	
+    	SmartDashboard.putData("Update Constants", new UpdateConstants());
 
     }
 
