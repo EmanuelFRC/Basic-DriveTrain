@@ -11,8 +11,7 @@ public class Constants {
 
 	private static Constants sConstants;
 	private static Properties mProperties;
-	private Callbacks mCallbacks;
-	
+
 	public interface Callbacks {
 		void setConstants();
 		void onConstantsUpdate();
@@ -79,10 +78,6 @@ public class Constants {
 	
 	public void reload() {
 		loadProperties(mProperties);
-	}
-	
-	public void constantsUpdated() {
-		mCallbacks.onConstantsUpdate();
 	}
 	
 }
