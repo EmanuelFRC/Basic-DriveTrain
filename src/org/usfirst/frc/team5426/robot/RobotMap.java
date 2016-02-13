@@ -31,5 +31,10 @@ public class RobotMap {
     public static final int ULTRA_ECHO = 1;
     public static final int ULTRA_PULSE = 0;
     
+    // Port: PCM
+    // Type: SOLENOID
+    public static final int SOLENOID_PORT = 0;  
+    
+    public static final int BACK_LIMIT_SWITCH = 0;
 
 }
