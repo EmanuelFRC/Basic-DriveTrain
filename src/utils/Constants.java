@@ -17,7 +17,7 @@ public class Constants {
 		void onConstantsUpdate();
 	}
 	
-	private String fileName = "constants.properties";
+	/*private String fileName = "constants.properties";
 
 	private Constants() {
 		mProperties = new Properties();
@@ -57,7 +57,7 @@ public class Constants {
 	
 	private void loadProperties(Properties properties) {
 		try {
-			String path = System.getProperty("user.dir") + "\\" + fileName;
+			String path = System.getProperty(fileName);
 			FileInputStream in = new FileInputStream(new File(path));
 			properties.load(in);
 			in.close();
@@ -78,6 +78,6 @@ public class Constants {
 	
 	public void reload() {
 		loadProperties(mProperties);
-	}
+	}*/
 	
 }

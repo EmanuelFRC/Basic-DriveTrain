@@ -20,7 +20,7 @@ public class UpdateConstants extends CommandBase {
 
 	@Override
 	protected void execute() {
-		shooter.onConstantsUpdate();
+		//shooter.onConstantsUpdate();
 	}
 
 	@Override

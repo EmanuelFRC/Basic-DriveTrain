@@ -65,7 +65,7 @@ public class OI {
     	
     	//SmartDashboard.putBoolean("Button A State", xBoxJoystick.getButtonA().get());
     	
-    	SmartDashboard.putData("Update Constants", new UpdateConstants());
+    	//SmartDashboard.putData("Update Constants", new UpdateConstants());
 
     }
 
