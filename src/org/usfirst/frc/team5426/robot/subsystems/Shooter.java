@@ -3,8 +3,9 @@ package org.usfirst.frc.team5426.robot.subsystems;
 import org.usfirst.frc.team5426.robot.RobotMap;
 import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
 
-import utils.Constants;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,15 +20,15 @@ public class Shooter extends Subsystem {
 	private double mIntakeSpeed;
 	private double mShootSpeed;
 	
-	// Created a new solenoid
-	public static Solenoid solenoid;
+	// Creates a new object as a solenoid
+	private Solenoid mSolenoid;
+	
+	private DigitalInput mBackLimitSwitch;
 	
 	public static final String INTAKE_SPEED_KEY = "intakeSpeed";
 	public static final double INTAKE_SPEED_VALUE = 0.15;
 	public static final String SHOOT_SPEED_KEY = "shootSpeed";
 	public static final double SHOOT_SPEED_VALUE = 0.30;
-	
-	private final int SOLENOID_PORT = 0;
 	
 	public Shooter() {
 		//mLeftSpinner = new Talon(RobotMap.LEFT_SPINNER);
@@ -37,8 +38,9 @@ public class Shooter extends Subsystem {
 		mShootSpeed = SHOOT_SPEED_VALUE;
 		
 		// Defining the solenoid object
-		solenoid = new Solenoid(SOLENOID_PORT);
-		// Allows solenoid to be used
+		mSolenoid = new Solenoid(RobotMap.SOLENOID_PORT);
+		
+		mBackLimitSwitch = new DigitalInput(RobotMap.BACK_LIMIT_SWITCH);
 	}
 	
 	@Override
@@ -52,7 +54,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void shoot() {
-		solenoid.set(false);
+		mSolenoid.set(false);
 		mLeftSpinner.set(-1 * mShootSpeed);
 		mRightSpinner.set(mShootSpeed);
 		
@@ -61,7 +63,7 @@ public class Shooter extends Subsystem {
 	public void stop() {
 		mLeftSpinner.set(0);
 		mRightSpinner.set(0);
-		solenoid.set(true);
+		mSolenoid.set(true);
 	}
 
 	/*@Override
@@ -94,11 +96,21 @@ public class Shooter extends Subsystem {
     		speed = -0.3;
     	
     	SmartDashboard.putNumber("speed", speed);
-		mShaftMotor.set(speed);
+    	if (mBackLimitSwitch.get() == false) {
+    		mShaftMotor.set(speed);
+    	}
 	}
 	
 	public void stopShaftMotor() {
 		mShaftMotor.set(0);
+	}
+	
+	public Solenoid getSolenoid() {
+		return mSolenoid;
+	}
+	
+	public DigitalInput getBackLimitSwitch() {
+		return mBackLimitSwitch;
 	}
 	
 }

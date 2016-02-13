@@ -49,6 +49,7 @@ public abstract class CommandBase extends Command {
 	        SmartDashboard.putNumber("Left Axis X", OI.getLeftAxisX());
 	        SmartDashboard.putNumber("Right Axis Y", OI.getRightAxisY());
 	        
+	        SmartDashboard.putBoolean("backLimitSwitch", shooter.getBackLimitSwitch().get());
 		} else {
 			init();
 		}
