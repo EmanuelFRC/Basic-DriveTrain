@@ -41,35 +41,35 @@ public class XBoxdpad extends Joystick {
 	}
 	
 	public Button getTopLeftButton() {
-		return buttonTopLeft;
+		return this.buttonTopLeft;
 	}
 	
 	public Button getTopButton() {
-		return buttonTop;
+		return this.buttonTop;
 	}
 	
 	public Button getTopRightButton() {
-		return buttonTopRight;
+		return this.buttonTopRight;
 	}
 	
 	public Button getRightButton() {
-		return buttonRight;
+		return this.buttonRight;
 	}
 	
 	public Button getBottomRightButton() {
-		return buttonBottomRight;
+		return this.buttonBottomRight;
 	}
 	
 	public Button getBottomButton() {
-		return buttonBottom;
+		return this.buttonBottom;
 	}
 	
 	public Button getBottomLeftButton() {
-		return buttonBottomLeft;
+		return this.buttonBottomLeft;
 	}
 	
 	public Button getLeftButton() {
-		return buttonLeft;
+		return this.buttonLeft;
 	}
 
 }

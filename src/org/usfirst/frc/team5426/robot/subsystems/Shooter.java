@@ -1,9 +1,16 @@
 package org.usfirst.frc.team5426.robot.subsystems;
 
 import org.usfirst.frc.team5426.robot.RobotMap;
+import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
 
+<<<<<<< HEAD
 import utils.Constants;
+=======
+import edu.wpi.first.wpilibj.CANTalon;
+>>>>>>> master
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -12,7 +19,9 @@ public class Shooter extends Subsystem
 
 	private Talon mLeftSpinner;
 	private Talon mRightSpinner;
+	private CANTalon  mShaftMotor;
 	
+<<<<<<< HEAD
 	private double mIntakeSpeed;
 	private double mShootSpeed;
 	
@@ -26,11 +35,23 @@ public class Shooter extends Subsystem
 		mRightSpinner = new Talon(RobotMap.RIGHT_SPINNER);
 		setConstants();
 		onConstantsUpdate();
+=======
+	private double INTAKE_SPEED;
+	private double SHOOT_SPEED;
+	
+	public Shooter(double intake, double shoot) {
+		mLeftSpinner = new Talon(RobotMap.LEFT_SPINNER);
+		mRightSpinner = new Talon(RobotMap.RIGHT_SPINNER);
+		mShaftMotor = new CANTalon(RobotMap.SHAFT_MOTOR);
+
+		INTAKE_SPEED = intake;
+		SHOOT_SPEED = shoot;
+>>>>>>> master
 	}
 	
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
+		setDefaultCommand(new LiftJoystick());	
 	}
 	
 	public void intake() {
@@ -47,6 +68,7 @@ public class Shooter extends Subsystem
 		mLeftSpinner.set(0);
 		mRightSpinner.set(0);
 	}
+<<<<<<< HEAD
 
 	@Override
 	public void onConstantsUpdate() {
@@ -69,6 +91,17 @@ public class Shooter extends Subsystem
 				.setProperty(INTAKE_SPEED_KEY, INTAKE_SPEED_VALUE);
 		Constants.prop()
 				.setProperty(SHOOT_SPEED_KEY, SHOOT_SPEED_VALUE);		
+=======
+	
+	public void setShaftMotorSpeed(double speed) {
+    	SmartDashboard.putNumber("soeed", speed);
+
+		mShaftMotor.set(speed);
+	}
+	
+	public void stopShaftMotor() {
+		mShaftMotor.set(0);
+>>>>>>> master
 	}
 	
 }

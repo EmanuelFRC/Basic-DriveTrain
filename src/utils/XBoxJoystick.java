@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 /*
  * TODO
  * 
- * Change all port numbers to constants DONE
  * Add function to filter out ghost values. Do not replace default getAxis functions
  * Add support for dpad and start/select buttons
  * Add limit function. If >1 or <-1 make them 1 or -1
@@ -26,16 +25,21 @@ public class XBoxJoystick extends Joystick {
 	private Button leftStickPress;
 	private Button rightStickPress;
 	
-	// Constant port values
+	// Port value declarations
 	private static final int BUTTON_A_PORT = 1;
 	private static final int BUTTON_B_PORT = 2;
 	private static final int BUTTON_X_PORT = 3;
 	private static final int BUTTON_Y_PORT = 4;
+	
+	// I was looking at some other code and am starting to think these are using the wrong ports
 	private static final int LEFT_BUMPER_PORT = 5;
 	private static final int RIGHT_BUMPER_PORT = 6;
 	private static final int LEFT_STICK_PORT = 9;
 	private static final int RIGHT_STICK_PORT = 10;
 	
+	private double joystickY;
+	private double joystickX;
+	private double joystickZ;
 	
 	public XBoxJoystick(int port) {
 		super(port);
@@ -51,7 +55,23 @@ public class XBoxJoystick extends Joystick {
 		rightStickPress = new JoystickButton(stick, RIGHT_STICK_PORT);
 	}
 	
-
+	// I'm not fully sure how to implement this limit into the robot so for now it's commented out.
+	/*public void limit(int port) {
+		stick = new Joystick(port);
+		
+		joystickY = stick.getY();
+		joystickX = stick.getX();
+		joystickZ = stick.getZ();
+		
+		if (joystickY > 1) joystickY = 1;
+		if (joystickY < -1) joystickY = -1;
+		if (joystickX > 1) joystickX = 1;
+		if (joystickX < -1) joystickX = -1;
+		if (joystickZ > 1) joystickZ = 1;
+		if (joystickZ < -1) joystickZ = -1;
+		
+	}*/
+	
 	public Button getButtonA() {
 		return buttonA;
 	}
@@ -71,7 +91,7 @@ public class XBoxJoystick extends Joystick {
 	public Button getLeftBumperButton() {
 		return leftBumperButton;
 	}
-
+	
 	public Button getRightBumperButton() {
 		return rightBumperButton;
 	}

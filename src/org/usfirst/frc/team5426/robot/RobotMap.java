@@ -21,12 +21,15 @@ public class RobotMap {
     public static final int RIGHT_MOTOR = 3;
     public static final int RIGHT_BACK_MOTOR = 1;
     
+    
     //Port: PWN
     //Type: SHOOTER MOTORS TALONS
     public static final int LEFT_SPINNER = 0;
     public static final int RIGHT_SPINNER = 1;
+    public static final int SHAFT_MOTOR = 5; //CAN
     
     public static final int ULTRA_ECHO = 1;
     public static final int ULTRA_PULSE = 0;
+    
 
 }
