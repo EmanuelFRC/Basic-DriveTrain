@@ -14,13 +14,13 @@ public class UpdateConstants extends CommandBase {
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
+		requires(shooter);
 		
 	}
 
 	@Override
 	protected void execute() {
-		Constants.get().constantsUpdated();
+		shooter.onConstantsUpdate();
 	}
 
 	@Override
