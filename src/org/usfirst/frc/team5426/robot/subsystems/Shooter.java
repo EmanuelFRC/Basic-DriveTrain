@@ -5,7 +5,6 @@ import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,9 +19,7 @@ public class Shooter extends Subsystem {
 	private double mIntakeSpeed;
 	private double mShootSpeed;
 	
-	// Creates a new object as a solenoid
-	private Solenoid mSolenoid;
-	
+	//private Solenoid mSolenoid;
 	private DigitalInput mBackLimitSwitch;
 	
 	public static final String INTAKE_SPEED_KEY = "intakeSpeed";
@@ -37,9 +34,7 @@ public class Shooter extends Subsystem {
 		mIntakeSpeed = INTAKE_SPEED_VALUE;
 		mShootSpeed = SHOOT_SPEED_VALUE;
 		
-		// Defining the solenoid object
-		mSolenoid = new Solenoid(RobotMap.SOLENOID_PORT);
-		
+		//mSolenoid = new Solenoid(RobotMap.SOLENOID_PORT);		
 		mBackLimitSwitch = new DigitalInput(RobotMap.BACK_LIMIT_SWITCH);
 	}
 	
@@ -54,7 +49,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void shoot() {
-		mSolenoid.set(false);
+		//mSolenoid.set(false);
 		mLeftSpinner.set(-1 * mShootSpeed);
 		mRightSpinner.set(mShootSpeed);
 		
@@ -63,7 +58,7 @@ public class Shooter extends Subsystem {
 	public void stop() {
 		mLeftSpinner.set(0);
 		mRightSpinner.set(0);
-		mSolenoid.set(true);
+		//mSolenoid.set(true);
 	}
 
 	/*@Override
@@ -96,8 +91,11 @@ public class Shooter extends Subsystem {
     		speed = -0.3;
     	
     	SmartDashboard.putNumber("speed", speed);
+
     	if (mBackLimitSwitch.get() == false) {
     		mShaftMotor.set(speed);
+    	} else {
+    		stopShaftMotor();
     	}
 	}
 	
@@ -105,9 +103,9 @@ public class Shooter extends Subsystem {
 		mShaftMotor.set(0);
 	}
 	
-	public Solenoid getSolenoid() {
+	/*public Solenoid getSolenoid() {
 		return mSolenoid;
-	}
+	}*/
 	
 	public DigitalInput getBackLimitSwitch() {
 		return mBackLimitSwitch;
