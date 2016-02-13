@@ -19,7 +19,6 @@ import utils.Constants;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
 	Command autonomousCommand;
 	
     /**

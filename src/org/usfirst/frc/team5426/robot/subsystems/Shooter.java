@@ -5,6 +5,7 @@ import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
 
 import utils.Constants;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -18,17 +19,26 @@ public class Shooter extends Subsystem {
 	private double mIntakeSpeed;
 	private double mShootSpeed;
 	
+	// Created a new solenoid
+	public static Solenoid solenoid;
+	
 	public static final String INTAKE_SPEED_KEY = "intakeSpeed";
 	public static final double INTAKE_SPEED_VALUE = 0.15;
 	public static final String SHOOT_SPEED_KEY = "shootSpeed";
 	public static final double SHOOT_SPEED_VALUE = 0.30;
-
+	
+	private final int SOLENOID_PORT = 0;
+	
 	public Shooter() {
 		//mLeftSpinner = new Talon(RobotMap.LEFT_SPINNER);
 		//mRightSpinner = new Talon(RobotMap.RIGHT_SPINNER);
 		mShaftMotor = new CANTalon(RobotMap.SHAFT_MOTOR);
 		mIntakeSpeed = INTAKE_SPEED_VALUE;
 		mShootSpeed = SHOOT_SPEED_VALUE;
+		
+		// Defining the solenoid object
+		solenoid = new Solenoid(SOLENOID_PORT);
+		// Allows solenoid to be used
 	}
 	
 	@Override
@@ -42,13 +52,16 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void shoot() {
+		solenoid.set(false);
 		mLeftSpinner.set(-1 * mShootSpeed);
 		mRightSpinner.set(mShootSpeed);
+		
 	}
 	
 	public void stop() {
 		mLeftSpinner.set(0);
 		mRightSpinner.set(0);
+		solenoid.set(true);
 	}
 
 	/*@Override
