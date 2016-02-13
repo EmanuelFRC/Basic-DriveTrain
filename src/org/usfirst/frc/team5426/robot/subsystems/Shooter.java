@@ -24,6 +24,7 @@ public class Shooter extends Subsystem
 	public Shooter() {
 		mLeftSpinner = new Talon(RobotMap.LEFT_SPINNER);
 		mRightSpinner = new Talon(RobotMap.RIGHT_SPINNER);
+		setConstants();
 		onConstantsUpdate();
 	}
 	
@@ -49,13 +50,25 @@ public class Shooter extends Subsystem
 
 	@Override
 	public void onConstantsUpdate() {
-		mIntakeSpeed = (double) Constants.getProperties()
-				.setProperty(INTAKE_SPEED_KEY, INTAKE_SPEED_VALUE);
-		mShootSpeed = (double) Constants.getProperties()
-				.setProperty(SHOOT_SPEED_KEY, SHOOT_SPEED_VALUE);
+		System.out.println("Updating shooter constants!");
+		
+		Constants.get().reload();
+		
+		mIntakeSpeed = Double.parseDouble(
+				Constants.prop().getProperty(INTAKE_SPEED_KEY, INTAKE_SPEED_VALUE));
+		mShootSpeed = Double.parseDouble(
+				Constants.prop().getProperty(SHOOT_SPEED_KEY, SHOOT_SPEED_VALUE));
 		
 		SmartDashboard.putNumber(INTAKE_SPEED_KEY, mIntakeSpeed);
 		SmartDashboard.putNumber(SHOOT_SPEED_KEY, mShootSpeed);
+	}
+
+	@Override
+	public void setConstants() {
+		Constants.prop()
+				.setProperty(INTAKE_SPEED_KEY, INTAKE_SPEED_VALUE);
+		Constants.prop()
+				.setProperty(SHOOT_SPEED_KEY, SHOOT_SPEED_VALUE);		
 	}
 	
 }

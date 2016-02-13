@@ -4,7 +4,9 @@ import utils.Constants;
 
 /**
  * Bind this command to a button, and click it whenever the
- * constants file is updated
+ * constants file is updated. In OI add:
+ * SmartDashboard.putData("Update Constants", new UpdateConstants());
+ * 
  * @author Emanuel
  *
  */

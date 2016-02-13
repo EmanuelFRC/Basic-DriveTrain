@@ -14,6 +14,7 @@ public class Constants {
 	private Callbacks mCallbacks;
 	
 	public interface Callbacks {
+		void setConstants();
 		void onConstantsUpdate();
 	}
 	
@@ -31,7 +32,7 @@ public class Constants {
 		return sConstants;
 	}
 	
-	public static Properties getProperties() {
+	public static Properties prop() {
 		if (sConstants == null) {
 			sConstants = new Constants();
 		}
@@ -74,6 +75,10 @@ public class Constants {
 
 	public void thatsAWrapFolks() {
 		saveProperties(mProperties);
+	}
+	
+	public void reload() {
+		loadProperties(mProperties);
 	}
 	
 	public void constantsUpdated() {
