@@ -3,13 +3,15 @@ package org.usfirst.frc.team5426.robot.commands;
 
 import org.usfirst.frc.team5426.robot.OI;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  * Drives with the joystick
  */
 public class LiftJoystick extends CommandBase {
 
     public LiftJoystick() {
-        requires(lift);
+        requires(shooter);
     }
 
     // Called just before this Command runs the first time
@@ -17,8 +19,13 @@ public class LiftJoystick extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {		
-		shooter.setShaftMotorSpeed(OI.getRightAxisY());
+    protected void execute() {
+    	double speed = OI.getRightAxisY();
+    	/*if (speed >= 0.5)
+    		speed = 0.5;
+    	if (speed <= -0.5)
+    		speed = -0.5;*/
+		shooter.setShaftMotorSpeed(speed);
 		//driveTrain.arcadeDrive(OI.xBoxJoystick.getLeftAxisY(), OI.xBoxJoystick.getLeftAxisX(), true);
     }
 

@@ -21,7 +21,7 @@ public class OI {
 
 	public static Joystick stick = new Joystick(0);
 	//public static XBoxJoystick xBoxJoystick = new XBoxJoystick(1);
-	public static Joystick logitech = new Joystick(1);
+	//public static Joystick logitech = new Joystick(1);
 
     /*
     Button buttonName = new JoystickButton(joystickClass, buttonNumber);
@@ -39,8 +39,8 @@ public class OI {
     Button buttonA = new JoystickButton(stick, 1);
     Button buttonB = new JoystickButton(stick, 2);
     
-    Button logitechTrigger = new JoystickButton(logitech, 1);
-    Button logitechSide = new JoystickButton(logitech, 2);
+    //Button logitechTrigger = new JoystickButton(logitech, 1);
+    //Button logitechSide = new JoystickButton(logitech, 2);
     
     BallNearby ballNearby = new BallNearby();
 

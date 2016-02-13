@@ -50,7 +50,7 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		//setDefaultCommand(new DriveJoystick());
+		setDefaultCommand(new DriveJoystick());
 	}
 
 	/**

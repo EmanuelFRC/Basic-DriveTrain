@@ -3,24 +3,26 @@ package org.usfirst.frc.team5426.robot.subsystems;
 import org.usfirst.frc.team5426.robot.RobotMap;
 import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends Subsystem {
 
 	private Talon mLeftSpinner;
 	private Talon mRightSpinner;
-	private Talon mShaftMotor;
+	private CANTalon  mShaftMotor;
 	
-	//private static final double INTAKE_SPEED = 0.3;
-	//private static final double SHOOT_SPEED = 0.3;
 	private double INTAKE_SPEED;
 	private double SHOOT_SPEED;
 	
 	public Shooter(double intake, double shoot) {
 		mLeftSpinner = new Talon(RobotMap.LEFT_SPINNER);
 		mRightSpinner = new Talon(RobotMap.RIGHT_SPINNER);
-		mShaftMotor = new Talon(RobotMap.SHAFT_MOTOR);
+		mShaftMotor = new CANTalon(RobotMap.SHAFT_MOTOR);
 
 		INTAKE_SPEED = intake;
 		SHOOT_SPEED = shoot;
@@ -47,6 +49,8 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void setShaftMotorSpeed(double speed) {
+    	SmartDashboard.putNumber("soeed", speed);
+
 		mShaftMotor.set(speed);
 	}
 	
