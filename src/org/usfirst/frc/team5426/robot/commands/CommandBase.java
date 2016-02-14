@@ -1,14 +1,17 @@
 package org.usfirst.frc.team5426.robot.commands;
 
+
+import java.util.ArrayList;
+
 import org.usfirst.frc.team5426.robot.OI;
 import org.usfirst.frc.team5426.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5426.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team5426.robot.subsystems.Shooter;
 
-import edu.wpi.first.wpilibj.Preferences;
+import utils.GRIPVision;
+import utils.GRIPVision.Contour;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 
 /**
  * All subsystems need to be initialized in this file first.
@@ -19,7 +22,7 @@ public abstract class CommandBase extends Command {
 	public static DriveTrain driveTrain;
 	public static Shooter shooter;
 	public static OI oi;
-	
+		
 	public static void init() {		
 		exampleSubsystem = new ExampleSubsystem();
 		driveTrain = new DriveTrain();
@@ -50,6 +53,13 @@ public abstract class CommandBase extends Command {
 	        SmartDashboard.putNumber("Right Axis Y", OI.getRightAxisY());
 	        
 	        SmartDashboard.putBoolean("backLimitSwitch", shooter.getBackLimitSwitch().get());
+	        
+	        ArrayList<Contour> contours = GRIPVision.get().getContours();
+	        for (Contour c : contours) {
+	        	c.printContour();
+	        }
+	        
+	        
 		} else {
 			init();
 		}

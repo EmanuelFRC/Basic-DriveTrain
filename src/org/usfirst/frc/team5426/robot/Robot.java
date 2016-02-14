@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5426.robot.commands.*;
 
 import utils.Constants;
+import utils.GRIPVision;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +28,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	CommandBase.init();
+    	GRIPVision.init();
     	// instantiate the command used for the autonomous period
     }
 	
