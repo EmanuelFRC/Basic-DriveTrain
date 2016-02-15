@@ -13,7 +13,6 @@ public class RobotMap {
     //Your actual port numbers will change depending on how you wired your robot. It's the number on the
     //roboRIO
 
-
     //Port: CAN
     //Type: DRIVETRAIN MOTORS TALONS SRX
     public static final int LEFT_MOTOR = 4;
@@ -36,5 +35,11 @@ public class RobotMap {
     public static final int SOLENOID_PORT = 0;  
     
     public static final int BACK_LIMIT_SWITCH = 0;
+    
+    
+    //These will be used later.
+    public static final double TOWER_WIDTH_IN = 0;
+    public static final double TOWER_WIDTH_PX = 0;
+    public static final double FOCAL_MS_WEB_CAM = 0;
 
 }

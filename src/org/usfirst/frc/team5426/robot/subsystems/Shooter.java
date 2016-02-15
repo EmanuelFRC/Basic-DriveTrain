@@ -34,7 +34,7 @@ public class Shooter extends Subsystem {
 		mIntakeSpeed = INTAKE_SPEED_VALUE;
 		mShootSpeed = SHOOT_SPEED_VALUE;
 		
-		//mSolenoid = new Solenoid(RobotMap.SOLENOID_PORT);		
+		//mSolenoid = new Solenoid(RobotMap.SOLENOID_PORT);
 		mBackLimitSwitch = new DigitalInput(RobotMap.BACK_LIMIT_SWITCH);
 	}
 	
@@ -55,7 +55,7 @@ public class Shooter extends Subsystem {
 		
 	}
 	
-	public void stop() {
+	public void stopSpinners() {
 		mLeftSpinner.set(0);
 		mRightSpinner.set(0);
 		//mSolenoid.set(true);

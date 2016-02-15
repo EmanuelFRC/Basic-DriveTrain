@@ -28,12 +28,12 @@ public class IntakeBall extends CommandBase {
 
 	@Override
 	protected void end() {
-		shooter.stop();
+		shooter.stopSpinners();
 	}
 
 	@Override
 	protected void interrupted() {
-		shooter.stop();
+		shooter.stopSpinners();
 	}
 
 }
