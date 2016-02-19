@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5426.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5426.robot.commands.IntakeBall;
+import org.usfirst.frc.team5426.robot.commands.LiftDown;
+import org.usfirst.frc.team5426.robot.commands.LiftUp;
 import org.usfirst.frc.team5426.robot.commands.ShootBall;
 import org.usfirst.frc.team5426.robot.commands.UpdateConstants;
 import org.usfirst.frc.team5426.robot.triggers.BallNearby;
@@ -39,6 +41,9 @@ public class OI {
 
     Button buttonA = new JoystickButton(stick, 1);
     Button buttonB = new JoystickButton(stick, 2);
+    Button buttonX = new JoystickButton(stick, 3);
+    Button buttonY = new JoystickButton(stick, 4);
+
     
     //Button logitechTrigger = new JoystickButton(logitech, 1);
     //Button logitechSide = new JoystickButton(logitech, 2);
@@ -54,6 +59,9 @@ public class OI {
 
     	buttonA.whileActive(new IntakeBall(1));
     	buttonB.whileActive(new ShootBall(1));
+    	buttonX.whileActive(new LiftUp(1));
+    	buttonY.whileActive(new LiftDown(1));
+
     	
     	//logitechTrigger.whileActive(new ShootBall(1));
     	//logitechSide.whileActive(new IntakeBall(1));

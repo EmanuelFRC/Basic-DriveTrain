@@ -1,19 +1,20 @@
 package org.usfirst.frc.team5426.robot.subsystems;
 
 import org.usfirst.frc.team5426.robot.RobotMap;
-import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
+import org.usfirst.frc.team5426.robot.commands.SetShootArm;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends Subsystem {
 
-	private Talon mLeftSpinner;
-	private Talon mRightSpinner;
+	private Victor mLeftSpinner;
+	private Victor mRightSpinner;
 	private CANTalon  mShaftMotor;
 	
 	private double mIntakeSpeed;
@@ -28,8 +29,8 @@ public class Shooter extends Subsystem {
 	public static final double SHOOT_SPEED_VALUE = 0.30;
 	
 	public Shooter() {
-		//mLeftSpinner = new Talon(RobotMap.LEFT_SPINNER);
-		//mRightSpinner = new Talon(RobotMap.RIGHT_SPINNER);
+		mLeftSpinner = new Victor(RobotMap.LEFT_SPINNER);
+		mRightSpinner = new Victor(RobotMap.RIGHT_SPINNER);
 		mShaftMotor = new CANTalon(RobotMap.SHAFT_MOTOR);
 		mIntakeSpeed = INTAKE_SPEED_VALUE;
 		mShootSpeed = SHOOT_SPEED_VALUE;
@@ -40,7 +41,7 @@ public class Shooter extends Subsystem {
 	
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new LiftJoystick());	
+		setDefaultCommand(new SetShootArm());
 	}
 	
 	public void intake() {

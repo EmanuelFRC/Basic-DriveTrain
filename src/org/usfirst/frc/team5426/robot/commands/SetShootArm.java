@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * Drives with the joystick
  */
-public class LiftJoystick extends CommandBase {
+public class SetShootArm extends CommandBase {
 
-    public LiftJoystick() {
+    public SetShootArm() {
         requires(shooter);
     }
 
