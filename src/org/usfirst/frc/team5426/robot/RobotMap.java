@@ -16,25 +16,35 @@ public class RobotMap {
 
     //Port: CAN
     //Type: DRIVETRAIN MOTORS TALONS SRX
-    public static final int LEFT_MOTOR = 4;
+    /*public static final int LEFT_MOTOR = 4;
     public static final int LEFT_BACK_MOTOR = 2;
     public static final int RIGHT_MOTOR = 3;
     public static final int RIGHT_BACK_MOTOR = 1;
+    public static final int SHAFT_MOTOR = 5;*/
     
+	
+	//Port: PWN
+	//Type: DRIVETRAIN MOTORS (FOR OLDER CONTROLLERS)
+    public static final int RIGHT_BACK_MOTOR = 1;
+    public static final int LEFT_BACK_MOTOR = 2;
+    public static final int RIGHT_MOTOR = 3;
+    public static final int LEFT_MOTOR = 4;
+    public static final int SHAFT_MOTOR = 5;
     
     //Port: PWN
     //Type: SHOOTER MOTORS TALONS
     public static final int LEFT_SPINNER = 0;
     public static final int RIGHT_SPINNER = 1;
-    public static final int SHAFT_MOTOR = 5; //CAN
     
     public static final int ULTRA_ECHO = 1;
     public static final int ULTRA_PULSE = 0;
     
-    // Port: PCM
-    // Type: SOLENOID
+    //Port: PCM
+    //Type: SOLENOID
     public static final int SOLENOID_PORT = 0;  
     
+    //Port:
+    //Type: LIMIT SWITCH
     public static final int BACK_LIMIT_SWITCH = 0;
 
 }

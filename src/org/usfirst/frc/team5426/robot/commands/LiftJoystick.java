@@ -22,6 +22,7 @@ public class LiftJoystick extends CommandBase {
     protected void execute() {
     	double speed = OI.getRightAxisY();
 		shooter.setShaftMotorSpeed(speed);
+		
 		//driveTrain.arcadeDrive(OI.xBoxJoystick.getLeftAxisY(), OI.xBoxJoystick.getLeftAxisX(), true);
     }
 
