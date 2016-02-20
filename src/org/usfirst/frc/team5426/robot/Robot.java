@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team5426.robot.commands.*;
 
-import utils.Constants;
 
 /**
  * The VM is configured to automatically run this class, and to call the

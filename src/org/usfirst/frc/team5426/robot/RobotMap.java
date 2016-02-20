@@ -19,13 +19,13 @@ public class RobotMap {
 	
 	
 	
-	// PWM (For the Talon SR motor controllers)
+	// PWM (For the Talon motor controllers)
 	public static final int LEFT_MOTOR = 2;
     public static final int LEFT_BACK_MOTOR = 3;
     public static final int RIGHT_MOTOR = 4;
     public static final int RIGHT_BACK_MOTOR = 5;
     
-    // These may be changed depending on which way they decide to install them.
+    // These ports will not be known until they are installed
     public static final int LEFT_SPINNER = 0;
     public static final int RIGHT_SPINNER = 1;
     
