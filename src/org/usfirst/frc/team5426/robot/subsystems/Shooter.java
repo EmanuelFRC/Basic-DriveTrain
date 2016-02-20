@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends Subsystem {
-
+	
 	private Victor mLeftSpinner;
 	private Victor mRightSpinner;
-	private CANTalon  mShaftMotor;
+	private Victor mShaftMotor;
 	
 	private double mIntakeSpeed;
 	private double mShootSpeed;
@@ -31,7 +31,7 @@ public class Shooter extends Subsystem {
 	public Shooter() {
 		mLeftSpinner = new Victor(RobotMap.LEFT_SPINNER);
 		mRightSpinner = new Victor(RobotMap.RIGHT_SPINNER);
-		mShaftMotor = new CANTalon(RobotMap.SHAFT_MOTOR);
+		mShaftMotor = new Victor(RobotMap.SHAFT_MOTOR);
 		mIntakeSpeed = INTAKE_SPEED_VALUE;
 		mShootSpeed = SHOOT_SPEED_VALUE;
 		

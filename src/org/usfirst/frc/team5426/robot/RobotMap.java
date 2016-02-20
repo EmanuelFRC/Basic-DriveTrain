@@ -17,8 +17,9 @@ public class RobotMap {
 	 * DUNCAN FIX PORT NUMBERS PLS
 	 */
 
-
-	// PWM
+	
+	
+	// PWM (For the Talon SR motor controllers)
 	public static final int LEFT_MOTOR = 0;
     public static final int LEFT_BACK_MOTOR = 1;
     public static final int RIGHT_MOTOR = 2;

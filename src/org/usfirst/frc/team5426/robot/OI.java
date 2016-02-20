@@ -61,7 +61,6 @@ public class OI {
     	buttonB.whileActive(new ShootBall(1));
     	buttonX.whileActive(new LiftUp(1));
     	buttonY.whileActive(new LiftDown(1));
-
     	
     	//logitechTrigger.whileActive(new ShootBall(1));
     	//logitechSide.whileActive(new IntakeBall(1));

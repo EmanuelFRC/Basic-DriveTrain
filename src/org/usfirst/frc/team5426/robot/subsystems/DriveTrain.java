@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
@@ -18,10 +19,10 @@ public class DriveTrain extends Subsystem {
 		Example, our build used the TalonSRX, so the right class to use is CANTalon. If you used regular
 		Talons, you would use the Talon class.
 	 */
-	private Talon mLeftMotor;
-	private Talon mLeftBackMotor;
-	private Talon mRightMotor;
-	private Talon mRightBackMotor;
+	private Victor mLeftMotor;
+	private Victor mLeftBackMotor;
+	private Victor mRightMotor;
+	private Victor mRightBackMotor;
 
 	private RobotDrive myRobot;
 
@@ -30,10 +31,10 @@ public class DriveTrain extends Subsystem {
 
 
 	public DriveTrain() {
-		mLeftMotor = new Talon(RobotMap.LEFT_MOTOR);
-		mLeftBackMotor = new Talon(RobotMap.LEFT_BACK_MOTOR);
-		mRightMotor = new Talon(RobotMap.RIGHT_MOTOR);
-		mRightBackMotor = new Talon(RobotMap.RIGHT_BACK_MOTOR);
+		mLeftMotor = new Victor(RobotMap.LEFT_MOTOR);
+		mLeftBackMotor = new Victor(RobotMap.LEFT_BACK_MOTOR);
+		mRightMotor = new Victor(RobotMap.RIGHT_MOTOR);
+		mRightBackMotor = new Victor(RobotMap.RIGHT_BACK_MOTOR);
 
 		//RobotDrive takes the following port numbers:
 		//RobotDrive(left back, left front, right back, right front)

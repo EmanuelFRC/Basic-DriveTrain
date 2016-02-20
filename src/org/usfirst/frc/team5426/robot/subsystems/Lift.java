@@ -3,6 +3,7 @@ package org.usfirst.frc.team5426.robot.subsystems;
 import org.usfirst.frc.team5426.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Lift extends Subsystem{
@@ -13,16 +14,20 @@ public class Lift extends Subsystem{
 	 * -Or encoders
 	 */
 	
-	private CANTalon mLeftLift;
-	private CANTalon mRightLift;
+	/*
+	 * I changed the CANTalons to Victors since we are not currently using Talons
+	 */
+	
+	private Victor mLeftLift;
+	private Victor mRightLift;
 	
 	@Override
 	protected void initDefaultCommand() {
 	}
 	
 	public Lift() {
-		mLeftLift = new CANTalon(RobotMap.LEFT_LIFT);
-		mRightLift = new CANTalon(RobotMap.RIGHT_LIFT);
+		mLeftLift = new Victor(RobotMap.LEFT_LIFT);
+		mRightLift = new Victor(RobotMap.RIGHT_LIFT);
 	}
 	
 	/*
@@ -34,8 +39,8 @@ public class Lift extends Subsystem{
 	}
 	
 	public void stopLift() {
-		mLeftLift.set(0);
-		mRightLift.set(0);
+		mLeftLift.set(0.0);
+		mRightLift.set(0.0);
 	}
 	
 }
