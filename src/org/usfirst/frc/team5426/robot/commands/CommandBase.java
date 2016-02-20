@@ -6,7 +6,6 @@ import org.usfirst.frc.team5426.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team5426.robot.subsystems.Lift;
 import org.usfirst.frc.team5426.robot.subsystems.Shooter;
 
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 

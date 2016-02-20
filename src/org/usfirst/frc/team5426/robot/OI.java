@@ -3,18 +3,11 @@ package org.usfirst.frc.team5426.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team5426.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5426.robot.commands.IntakeBall;
 import org.usfirst.frc.team5426.robot.commands.LiftDown;
 import org.usfirst.frc.team5426.robot.commands.LiftUp;
 import org.usfirst.frc.team5426.robot.commands.ShootBall;
-import org.usfirst.frc.team5426.robot.commands.UpdateConstants;
 import org.usfirst.frc.team5426.robot.triggers.BallNearby;
-
-import utils.XBoxJoystick;
 
 /**
  * This class is the glue that binds the controls on the physical operator

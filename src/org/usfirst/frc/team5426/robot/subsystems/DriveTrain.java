@@ -4,11 +4,8 @@ import org.usfirst.frc.team5426.robot.RobotMap;
 import org.usfirst.frc.team5426.robot.commands.DriveJoystick;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Ultrasonic;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
@@ -19,29 +16,29 @@ public class DriveTrain extends Subsystem {
 		Example, our build used the TalonSRX, so the right class to use is CANTalon. If you used regular
 		Talons, you would use the Talon class.
 	 */
-	private Victor mLeftMotor;
-	private Victor mLeftBackMotor;
-	private Victor mRightMotor;
-	private Victor mRightBackMotor;
+	private Talon mLeftMotor;
+	private Talon mLeftBackMotor;
+	private Talon mRightMotor;
+	private Talon mRightBackMotor;
 
 	private RobotDrive myRobot;
 
 	private Accelerometer mBuiltInAccelerometer;
 	//private Ultrasonic mUltrasonic;
-
-
+	
+	
 	public DriveTrain() {
-		mLeftMotor = new Victor(RobotMap.LEFT_MOTOR);
-		mLeftBackMotor = new Victor(RobotMap.LEFT_BACK_MOTOR);
-		mRightMotor = new Victor(RobotMap.RIGHT_MOTOR);
-		mRightBackMotor = new Victor(RobotMap.RIGHT_BACK_MOTOR);
-
+		mLeftMotor = new Talon(RobotMap.LEFT_MOTOR);
+		mLeftBackMotor = new Talon(RobotMap.LEFT_BACK_MOTOR);
+		mRightMotor = new Talon(RobotMap.RIGHT_MOTOR);
+		mRightBackMotor = new Talon(RobotMap.RIGHT_BACK_MOTOR);
+		
 		//RobotDrive takes the following port numbers:
 		//RobotDrive(left back, left front, right back, right front)
 		myRobot = new RobotDrive(mLeftBackMotor, mLeftMotor, mRightBackMotor, mRightMotor);
-
+		
 		mBuiltInAccelerometer = new BuiltInAccelerometer();
-
+		
 		//mUltrasonic = new Ultrasonic(RobotMap.ULTRA_PULSE, RobotMap.ULTRA_ECHO);
 		//mUltrasonic.setAutomaticMode(true);
 		//SmartDashboard.putNumber("Distance (in)", mUltrasonic.getRangeInches());
@@ -50,7 +47,7 @@ public class DriveTrain extends Subsystem {
 	public void initDefaultCommand() {
 		setDefaultCommand(new DriveJoystick());
 	}
-
+	
 	/**
 	 * @param leftAxisY Move value from -1 to 1
 	 * @param leftAxisX Rotate Value from -1 to 1
@@ -64,13 +61,13 @@ public class DriveTrain extends Subsystem {
 		*/
 		myRobot.arcadeDrive(leftAxisY, leftAxisX, sensitivity);
 	}
-
+	
 	public Accelerometer getBuiltInAccelerometer() {
 		return mBuiltInAccelerometer;
 	}
-
+	
 	/*public Ultrasonic getUltrasonic() {
 		return mUltrasonic;
 	}*/
-
+	
 }

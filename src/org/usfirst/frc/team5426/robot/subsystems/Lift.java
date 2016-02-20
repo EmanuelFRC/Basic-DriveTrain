@@ -2,7 +2,6 @@ package org.usfirst.frc.team5426.robot.subsystems;
 
 import org.usfirst.frc.team5426.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 

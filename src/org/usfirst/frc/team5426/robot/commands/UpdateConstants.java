@@ -1,7 +1,5 @@
 package org.usfirst.frc.team5426.robot.commands;
 
-import utils.Constants;
-
 /**
  * Bind this command to a button, and click it whenever the
  * constants file is updated. In OI add:
