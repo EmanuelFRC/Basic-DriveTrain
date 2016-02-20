@@ -1,4 +1,7 @@
 package org.usfirst.frc.team5426.robot;
+
+import edu.wpi.first.wpilibj.Victor;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -14,10 +17,35 @@ public class RobotMap {
     //roboRIO
 	
 	/*
-	 * DUNCAN FIX PORT NUMBERS PLS
+	 * If no programmers are available to test, read this.
+	 * 
+	 * The things that say LEFT_SPINNER and RIGHT_SPINNER below this comment define the ports.
+	 * For example, public static final int LEFT_SPINNER = 0; says that the port the left spinner victor is plugged into is port 0.
+	 * 
+	 * If you want to transform Victors into Talons or Talons into CANTalons, you must find the appropriate system where the
+	 * motors are defined and change the type.
+	 * 
+	 * For example, if you want to make the shooter use Talons instead of Victors, you'd expand the Subsystems package in the left bar
+	 * and find Shooter.java. Double click the file to open it into eclipse and look around the top. You should see a object declaration
+	 * for the Victors that looks like the following: 
+	 * 
+	 * private Victor mLeftSpinner;
+	 * 
+	 * Ignore "private" and "mLeftSpinner;". You don't want to touch those. To change it into a Talon, simply change Victor to Talon.
+	 * Be sure to capitalise the first letter, Java is very case sensitive. You will then see a red line appear underneath something
+	 * a bit later in the file that looks like this:
+	 * 
+	 * mLeftSpinner = new Victor(RobotMap.LEFT_SPINNER);
+	 * 
+	 * Where it says "new Victor", change "Victor" to Talon or whatever else you're using.
+	 * 
+	 * It's pretty much the same thing in DriveTrain.java, but things will be named differently.
+	 * 
+	 * 
+	 * You can use either Talons, CANTalons or Victors.
+	 * Good luck!
+	 * 
 	 */
-	
-	
 	
 	// PWM (For the Talon motor controllers)
 	public static final int LEFT_MOTOR = 2;
@@ -28,7 +56,6 @@ public class RobotMap {
     // These ports will not be known until they are installed
     public static final int LEFT_SPINNER = 0;
     public static final int RIGHT_SPINNER = 1;
-    
     
     //PCM
     public static final int SOLENOID_PORT = 0;
