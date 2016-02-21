@@ -12,7 +12,7 @@ public class LiftDown extends CommandBase {
 	@Override
 	protected void initialize() {
 		setTimeout(mTimeout);
-		lift.setLiftSpeed(-0.2);
+		lift.setLiftSpeed(-1);
 	}
 
 	@Override

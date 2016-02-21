@@ -3,6 +3,7 @@ package org.usfirst.frc.team5426.robot.subsystems;
 import org.usfirst.frc.team5426.robot.RobotMap;
 import org.usfirst.frc.team5426.robot.commands.SetShootArm;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,7 +13,7 @@ public class Shooter extends Subsystem {
 	
 	private Victor mLeftSpinner;
 	private Victor mRightSpinner;
-	private Victor mShaftMotor;
+	private CANTalon mShaftMotor;
 	
 	private double mIntakeSpeed;
 	private double mShootSpeed;
@@ -21,14 +22,14 @@ public class Shooter extends Subsystem {
 	private DigitalInput mBackLimitSwitch;
 	
 	public static final String INTAKE_SPEED_KEY = "intakeSpeed";
-	public static final double INTAKE_SPEED_VALUE = 0.15;
+	public static final double INTAKE_SPEED_VALUE = 0.3;
 	public static final String SHOOT_SPEED_KEY = "shootSpeed";
-	public static final double SHOOT_SPEED_VALUE = 0.30;
+	public static final double SHOOT_SPEED_VALUE = 0.3;
 	
 	public Shooter() {
 		mLeftSpinner = new Victor(RobotMap.LEFT_SPINNER);
 		mRightSpinner = new Victor(RobotMap.RIGHT_SPINNER);
-		mShaftMotor = new Victor(RobotMap.SHAFT_MOTOR);
+		mShaftMotor = new CANTalon(RobotMap.SHAFT_MOTOR);
 		mIntakeSpeed = INTAKE_SPEED_VALUE;
 		mShootSpeed = SHOOT_SPEED_VALUE;
 		
@@ -83,18 +84,20 @@ public class Shooter extends Subsystem {
 	}*/
 	
 	public void setShaftMotorSpeed(double speed) {
-    	if (speed >= 0.3)
-    		speed = 0.3;
-    	if (speed <= -0.3)
-    		speed = -0.3;
+    	if (speed >= 1.0)
+    		speed = 1.0;
+    	if (speed <= -1.0)
+    		speed = -1.0;
     	
     	SmartDashboard.putNumber("speed", speed);
-
+    	mShaftMotor.set(speed);
+    	
+    	/*
     	if (mBackLimitSwitch.get() == false) {
     		mShaftMotor.set(speed);
     	} else {
     		stopShaftMotor();
-    	}
+    	}*/
 	}
 	
 	public void stopShaftMotor() {

@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team5426.robot.commands.IntakeBall;
 import org.usfirst.frc.team5426.robot.commands.LiftDown;
 import org.usfirst.frc.team5426.robot.commands.LiftUp;
+import org.usfirst.frc.team5426.robot.commands.LockArm;
 import org.usfirst.frc.team5426.robot.commands.ShootBall;
 import org.usfirst.frc.team5426.robot.triggers.BallNearby;
 
@@ -36,6 +37,7 @@ public class OI {
     Button buttonB = new JoystickButton(stick, 2);
     Button buttonX = new JoystickButton(stick, 3);
     Button buttonY = new JoystickButton(stick, 4);
+    Button rightBumper = new JoystickButton(stick, 6);
 
     
     //Button logitechTrigger = new JoystickButton(logitech, 1);
@@ -54,6 +56,7 @@ public class OI {
     	buttonB.whileActive(new ShootBall(1));
     	buttonX.whileActive(new LiftUp(1));
     	buttonY.whileActive(new LiftDown(1));
+    	rightBumper.toggleWhenPressed(new LockArm());
     	
     	//logitechTrigger.whileActive(new ShootBall(1));
     	//logitechSide.whileActive(new IntakeBall(1));

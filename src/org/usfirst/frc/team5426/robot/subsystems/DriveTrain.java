@@ -59,12 +59,17 @@ public class DriveTrain extends Subsystem {
 			to get the robot moving based on the joystick input. It will drive exactly how you would
 			expect a car in any video game.
 		*/
-		myRobot.arcadeDrive(leftAxisY, leftAxisX, sensitivity);
+		myRobot.arcadeDrive(cubeInput(leftAxisY), cubeInput(leftAxisX));
 	}
 	
 	public Accelerometer getBuiltInAccelerometer() {
 		return mBuiltInAccelerometer;
 	}
+	
+	private double cubeInput(double i) {
+		return Math.pow(i, 3);
+	}
+	
 	
 	/*public Ultrasonic getUltrasonic() {
 		return mUltrasonic;

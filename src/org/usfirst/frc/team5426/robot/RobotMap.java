@@ -40,19 +40,25 @@ public class RobotMap {
 	 * Where it says "new Victor", change "Victor" to Talon or whatever else you're using.
 	 * 
 	 * It's pretty much the same thing in DriveTrain.java, but things will be named differently.
-	 * 
-	 * 
 	 * You can use either Talons, CANTalons or Victors.
+	 * 
+	 * 
+	 * To send the code to the robot, you must first connect to the Robot's WIFI network, it starts with a 5 and is 4 digits long.
+	 * Click on the run button (on the top bar, it's the green button with a white triangle) and pick WPILib Java Deploy.
+	 * 
+	 * Open FRC Driver Station, make sure it's set to TeleOperated and click on Enable. If the code is written properly, everything should work fine.
+	 * 
+	 * If you need clarification, email me at esniddunc@cscprovidence.ca
+	 * 
 	 * Good luck!
 	 * 
 	 */
 	
 	// PWM (For the Talon motor controllers)
 	public static final int LEFT_MOTOR = 2;
-    public static final int LEFT_BACK_MOTOR = 3;
-    public static final int RIGHT_MOTOR = 4;
+    public static final int LEFT_BACK_MOTOR = 4;
+    public static final int RIGHT_MOTOR = 3;
     public static final int RIGHT_BACK_MOTOR = 5;
-    
     // These ports will not be known until they are installed
     public static final int LEFT_SPINNER = 0;
     public static final int RIGHT_SPINNER = 1;
@@ -69,7 +75,6 @@ public class RobotMap {
     //Port: CAN
     public static final int LEFT_LIFT = 0;
 	public static final int RIGHT_LIFT = 1;
-    public static final int SHAFT_MOTOR = 5;
-    
+    public static final int SHAFT_MOTOR = 2;
     
 }

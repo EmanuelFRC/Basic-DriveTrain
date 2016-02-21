@@ -20,7 +20,6 @@ public class SetShootArm extends CommandBase {
     protected void execute() {
     	double speed = OI.getRightAxisY();
 		shooter.setShaftMotorSpeed(speed);
-		//driveTrain.arcadeDrive(OI.xBoxJoystick.getLeftAxisY(), OI.xBoxJoystick.getLeftAxisX(), true);
     }
 
     // Make this return true when this Command no longer needs to run execute()
