@@ -18,8 +18,14 @@ public class SetShootArm extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = OI.getRightAxisY();
-		shooter.setShaftMotorSpeed(speed);
+    	//double speed = 0.1;
+    	if (!LockArm.locked) {
+    		double speed = OI.getRightAxisY() / 1.5;
+    		shooter.setShaftMotorSpeed(speed);
+    	}
+    	else {
+    		return;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

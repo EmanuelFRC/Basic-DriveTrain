@@ -1,7 +1,11 @@
 package org.usfirst.frc.team5426.robot.commands;
 
+import org.usfirst.frc.team5426.robot.OI;
+
 public class LockArm extends CommandBase {
 
+	public static boolean locked;
+	
 	public LockArm() {
 		requires(shooter);
 	}
@@ -14,7 +18,7 @@ public class LockArm extends CommandBase {
 
 	@Override
 	protected void execute() {
-		shooter.setShaftMotorSpeed(-0.1);
+		shooter.setShaftMotorSpeed(OI.getRightAxisY());
 	}
 
 	@Override
@@ -25,8 +29,14 @@ public class LockArm extends CommandBase {
 
 	@Override
 	protected void end() {
+		shooter.setShaftMotorSpeed(OI.getRightAxisY());
+		locked = true;
 		
-		shooter.setShaftMotorSpeed(0);
+		if (!locked)
+			locked = true;
+		else
+			locked = false;
+		
 	}
 
 	@Override

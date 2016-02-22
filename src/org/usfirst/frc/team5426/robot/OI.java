@@ -7,6 +7,7 @@ import org.usfirst.frc.team5426.robot.commands.IntakeBall;
 import org.usfirst.frc.team5426.robot.commands.LiftDown;
 import org.usfirst.frc.team5426.robot.commands.LiftUp;
 import org.usfirst.frc.team5426.robot.commands.LockArm;
+import org.usfirst.frc.team5426.robot.commands.SetShootArm;
 import org.usfirst.frc.team5426.robot.commands.ShootBall;
 import org.usfirst.frc.team5426.robot.triggers.BallNearby;
 
@@ -15,7 +16,8 @@ import org.usfirst.frc.team5426.robot.triggers.BallNearby;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-
+	
+	public static Joystick logitech = new Joystick(1);
 	public static Joystick stick = new Joystick(0);
 	//public static XBoxJoystick xBoxJoystick = new XBoxJoystick(1);
 	//public static Joystick logitech = new Joystick(1);
@@ -33,15 +35,16 @@ public class OI {
     Button rBumper = new JoystickButton(stick, 6);
     */
 
+	// XBox stuff
     Button buttonA = new JoystickButton(stick, 1);
     Button buttonB = new JoystickButton(stick, 2);
     Button buttonX = new JoystickButton(stick, 3);
     Button buttonY = new JoystickButton(stick, 4);
     Button rightBumper = new JoystickButton(stick, 6);
-
     
-    //Button logitechTrigger = new JoystickButton(logitech, 1);
-    //Button logitechSide = new JoystickButton(logitech, 2);
+    // Logitech Joystick buttons
+    Button logitechTrigger = new JoystickButton(logitech, 1);
+    Button logitechSide = new JoystickButton(logitech, 2);
     
     BallNearby ballNearby = new BallNearby();
 
@@ -56,10 +59,11 @@ public class OI {
     	buttonB.whileActive(new ShootBall(1));
     	buttonX.whileActive(new LiftUp(1));
     	buttonY.whileActive(new LiftDown(1));
+    	//rightBumper.whileActive(new SetShootArm());
     	rightBumper.toggleWhenPressed(new LockArm());
     	
-    	//logitechTrigger.whileActive(new ShootBall(1));
-    	//logitechSide.whileActive(new IntakeBall(1));
+    	logitechTrigger.whileActive(new ShootBall(1));
+    	logitechSide.whileActive(new IntakeBall(1));
 
     	//xBoxJoystick.getButtonA().whileActive(new IntakeBall());
     	//xBoxJoystick.getButtonB().whileActive(new ShootBall());
