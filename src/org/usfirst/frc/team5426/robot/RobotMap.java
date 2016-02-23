@@ -70,6 +70,7 @@ public class RobotMap {
     
     //DIO
     public static final int BACK_LIMIT_SWITCH = 0;
+    public static final int SHOOTER_LIMIT_SWITCH = 2;
 	
     
     //Port: CAN

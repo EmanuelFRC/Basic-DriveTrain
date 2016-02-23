@@ -54,6 +54,8 @@ public abstract class CommandBase extends Command {
 	        SmartDashboard.putBoolean("Locked", LockArm.locked);
 	        
 	        SmartDashboard.putBoolean("backLimitSwitch", shooter.getBackLimitSwitch().get());
+	        SmartDashboard.putBoolean("shooterLimitSwitch", SetShootArm.getLimitSwitch().get());
+	        
 		} else {
 			init();
 		}

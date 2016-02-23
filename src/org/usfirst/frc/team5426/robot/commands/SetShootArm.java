@@ -2,12 +2,21 @@
 package org.usfirst.frc.team5426.robot.commands;
 
 import org.usfirst.frc.team5426.robot.OI;
+import org.usfirst.frc.team5426.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  * Drives with the joystick
  */
 public class SetShootArm extends CommandBase {
-
+	
+	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.SHOOTER_LIMIT_SWITCH);
+	
+	public static DigitalInput getLimitSwitch() {
+		return limitSwitch;
+	}
+	
     public SetShootArm() {
         requires(shooter);
     }
@@ -19,13 +28,11 @@ public class SetShootArm extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//double speed = 0.1;
-    	if (!LockArm.locked) {
-    		double speed = OI.logitech.getY() / 2;
-    		shooter.setShaftMotorSpeed(speed);
-    		
-    	}
-    	else {
-    		return;
+    	if (limitSwitch.getAnalogTriggerForRouting() == true) {
+	    	if (!LockArm.locked) {
+	    		double speed = OI.logitech.getY() / 2;
+	    		shooter.setShaftMotorSpeed(speed);
+	    	}
     	}
     }
 
