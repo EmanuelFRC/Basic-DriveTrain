@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+
 import org.usfirst.frc.team5426.robot.commands.*;
 
 
@@ -17,16 +19,26 @@ import org.usfirst.frc.team5426.robot.commands.*;
  */
 public class Robot extends IterativeRobot {
 	Command autonomousCommand;
+	SendableChooser autoMode;
 	
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	/*
+    	autoMode = new SendableChooser();
+    	autoMode.addDefault("Straight", new AutonomousStraight());
+    	autoMode.addObject("Auto Mode 2", new AutonomousTest());
+    	*/
     	CommandBase.init();
     	// instantiate the command used for the autonomous period
     }
 	
+    public void autonomous() {
+    	
+    }
+    
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}

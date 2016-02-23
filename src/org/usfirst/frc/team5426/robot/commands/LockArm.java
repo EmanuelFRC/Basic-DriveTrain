@@ -2,6 +2,8 @@ package org.usfirst.frc.team5426.robot.commands;
 
 import org.usfirst.frc.team5426.robot.OI;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class LockArm extends CommandBase {
 
 	public static boolean locked;
@@ -30,12 +32,15 @@ public class LockArm extends CommandBase {
 	@Override
 	protected void end() {
 		shooter.setShaftMotorSpeed(OI.getRightAxisY());
-		locked = true;
 		
-		if (!locked)
+		if (locked == false) {
 			locked = true;
-		else
+		}
+		else {
 			locked = false;
+		}
+		
+		SmartDashboard.putBoolean("Locked", locked);
 		
 	}
 

@@ -57,8 +57,8 @@ public class OI {
 
     	buttonA.whileActive(new IntakeBall(1));
     	buttonB.whileActive(new ShootBall(1));
-    	buttonX.whileActive(new LiftUp(1));
-    	buttonY.whileActive(new LiftDown(1));
+    	buttonX.whileActive(new LiftDown(1));
+    	buttonY.whileActive(new LiftUp(1));
     	//rightBumper.whileActive(new SetShootArm());
     	rightBumper.toggleWhenPressed(new LockArm());
     	

@@ -20,8 +20,9 @@ public class SetShootArm extends CommandBase {
     protected void execute() {
     	//double speed = 0.1;
     	if (!LockArm.locked) {
-    		double speed = OI.getRightAxisY() / 1.5;
+    		double speed = OI.logitech.getY() / 2;
     		shooter.setShaftMotorSpeed(speed);
+    		
     	}
     	else {
     		return;
