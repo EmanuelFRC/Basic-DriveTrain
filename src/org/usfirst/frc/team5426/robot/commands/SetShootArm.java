@@ -11,11 +11,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
  */
 public class SetShootArm extends CommandBase {
 	
-	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.SHOOTER_LIMIT_SWITCH);
-	
-	public static DigitalInput getLimitSwitch() {
-		return limitSwitch;
-	}
+	public static DigitalInput shooterLimitSwitch = new DigitalInput(RobotMap.SHOOTER_LIMIT_SWITCH);
 	
     public SetShootArm() {
         requires(shooter);
@@ -28,12 +24,10 @@ public class SetShootArm extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//double speed = 0.1;
-    	if (limitSwitch.getAnalogTriggerForRouting() == true) {
-	    	if (!LockArm.locked) {
-	    		double speed = OI.logitech.getY() / 2;
-	    		shooter.setShaftMotorSpeed(speed);
-	    	}
-    	}
+	    if (!LockArm.locked) {
+	    	double speed = OI.logitech.getY();
+	    	shooter.setShaftMotorSpeed(speed);
+	    }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -49,4 +43,8 @@ public class SetShootArm extends CommandBase {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    public static DigitalInput getLimitSwitch() {
+		return shooterLimitSwitch;
+	}
 }
