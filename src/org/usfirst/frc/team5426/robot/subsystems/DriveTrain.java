@@ -62,6 +62,15 @@ public class DriveTrain extends Subsystem {
 		myRobot.arcadeDrive(cubeInput(leftAxisY), cubeInput(leftAxisX));
 	}
 	
+	public void customArcadeDriveAuto(double leftAxisY, double leftAxisX, double time) {
+		/*
+			arcadeDrive is a default function that will power the motors in the correct way
+			to get the robot moving based on the joystick input. It will drive exactly how you would
+			expect a car in any video game.
+		*/
+		myRobot.arcadeDrive(cubeInput(leftAxisY), cubeInput(leftAxisX));
+	}
+	
 	public Accelerometer getBuiltInAccelerometer() {
 		return mBuiltInAccelerometer;
 	}
