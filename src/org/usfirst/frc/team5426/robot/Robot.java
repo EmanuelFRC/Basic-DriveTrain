@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5426.robot.commands.*;
 
@@ -33,10 +34,10 @@ public class Robot extends IterativeRobot {
     	*/
     	CommandBase.init();
     	// instantiate the command used for the autonomous period
-    }
-	
-    public void autonomous() {
     	
+    	autoMode = new SendableChooser();
+    	autoMode.addDefault("Autonomous Straight", new AutonomousStraight());
+    	SmartDashboard.putData("Autonomous Mode: ", autoMode);
     }
     
 	public void disabledPeriodic() {
