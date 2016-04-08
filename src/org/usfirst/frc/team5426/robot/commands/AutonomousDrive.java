@@ -2,21 +2,15 @@ package org.usfirst.frc.team5426.robot.commands;
 
 public class AutonomousDrive extends CommandBase {
 	
-	public double moveValue;
-	public double rotateValue;
-	public double time;
+	private double moveValue, rotateValue, time;
 	
 	public AutonomousDrive(double mv, double rv, double s) {
 		
-		/*
-		 * 
-		 */
-		
 		requires(driveTrain);
 		
-		this.moveValue = mv;
-		this.rotateValue = rv;
-		this.time = s;
+		moveValue = mv;
+		rotateValue = rv;
+		time = s;
 	}
 	
 	@Override
@@ -25,9 +19,8 @@ public class AutonomousDrive extends CommandBase {
 
 	@Override
 	protected void execute() {
-		
-		driveTrain.customArcadeDriveAuto(this.moveValue, this.rotateValue, this.time);
-		this.setTimeout(time);
+		driveTrain.customArcadeDrive(this.moveValue, this.rotateValue, true);
+		setTimeout(time);
 	}
 
 	@Override
@@ -40,7 +33,7 @@ public class AutonomousDrive extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return this.isTimedOut();
+		return isTimedOut();
 	}
 
 }

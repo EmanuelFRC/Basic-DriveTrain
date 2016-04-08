@@ -19,7 +19,7 @@ public class Shooter extends Subsystem {
 	private double mShootSpeed;
 	
 	//private Solenoid mSolenoid;
-	private DigitalInput mBackLimitSwitch;
+	private DigitalInput mArmLimitSwitch;
 	
 	public static final String INTAKE_SPEED_KEY = "intakeSpeed";
 	public static final double INTAKE_SPEED_VALUE = 0.3;
@@ -34,7 +34,7 @@ public class Shooter extends Subsystem {
 		mShootSpeed = SHOOT_SPEED_VALUE;
 		
 		//mSolenoid = new Solenoid(RobotMap.SOLENOID_PORT);		
-		mBackLimitSwitch = new DigitalInput(RobotMap.BACK_LIMIT_SWITCH);
+		mArmLimitSwitch = new DigitalInput(RobotMap.ARM_LIMIT_SWITCH);
 	}
 	
 	@Override
@@ -89,15 +89,13 @@ public class Shooter extends Subsystem {
     	if (speed <= -1.0)
     		speed = -1.0;
     	
-    	SmartDashboard.putNumber("speed", speed);
-    	mShaftMotor.set(speed);
+    	SmartDashboard.putNumber("speed", speed);    	
     	
-    	/*
-    	if (mBackLimitSwitch.get() == false) {
-    		mShaftMotor.set(speed);
-    	} else {
+    	if ((mArmLimitSwitch.get() && (speed<0))) {
     		stopShaftMotor();
-    	}*/
+    	} else {
+    		mShaftMotor.set(speed);
+    	}
 	}
 	
 	public void stopShaftMotor() {
@@ -108,8 +106,8 @@ public class Shooter extends Subsystem {
 		return mSolenoid;
 	}*/
 	
-	public DigitalInput getBackLimitSwitch() {
-		return mBackLimitSwitch;
+	public DigitalInput getArmLimitSwitch() {
+		return mArmLimitSwitch;
 	}
 	
 }

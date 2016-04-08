@@ -18,12 +18,17 @@ public class AutonomousLift extends CommandBase {
 
 	@Override
 	protected void execute() {
+		
+		/*
+		 * This sets the shaft motor to move to the position that is passed when a new instance
+		 * of this command is called.
+		 */
 		shooter.setShaftMotorSpeed(moveSpeed);
+		setTimeout(time);
 	}
 
 	@Override
 	protected void initialize() {
-		this.setTimeout(time);
 	}
 
 	@Override
@@ -32,7 +37,7 @@ public class AutonomousLift extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return isTimedOut();
 	}
 
 }

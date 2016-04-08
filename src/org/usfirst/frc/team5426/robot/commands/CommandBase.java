@@ -39,6 +39,7 @@ public abstract class CommandBase extends Command {
 	
 	public static void updateSmartDashboard() {
 		if (exampleSubsystem != null) {
+			// Not fully sure why the data print for the example subsystem is here, but it is.
 			SmartDashboard.putData("Example Subsystem", exampleSubsystem);
 			SmartDashboard.putData("Drive Train", driveTrain);
 			SmartDashboard.putData("Shooter", shooter);
@@ -53,7 +54,7 @@ public abstract class CommandBase extends Command {
 	        
 	        SmartDashboard.putBoolean("Locked", LockArm.locked);
 	        
-	        SmartDashboard.putBoolean("backLimitSwitch", shooter.getBackLimitSwitch().get());
+	       SmartDashboard.putBoolean("Arm Limit Switch", shooter.getArmLimitSwitch().get());
 	       // SmartDashboard.putBoolean("shooterLimitSwitch", SetShootArm.getLimitSwitch().get());
 	        
 		} else {

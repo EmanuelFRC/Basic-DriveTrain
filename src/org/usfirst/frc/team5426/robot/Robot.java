@@ -36,7 +36,11 @@ public class Robot extends IterativeRobot {
     	// instantiate the command used for the autonomous period
     	
     	autoMode = new SendableChooser();
-    	autoMode.addDefault("Autonomous Straight", new AutonomousStraight());
+    	autoMode.addDefault("Autonomous Nothing", new AutonomousNothing());
+    	autoMode.addObject("Autonomous Lowbar", new AutonomousLowbar());
+    	autoMode.addObject("Autonomous Straight", new AutonomousStraight());
+    	autoMode.addObject("Autonomous Rock Wall", new AutonomousRockWall());
+    	autoMode.addObject("Autonomous Balance", new AutonomousBalance());
     	SmartDashboard.putData("Autonomous Mode: ", autoMode);
     }
     
@@ -46,6 +50,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	autonomousCommand = (Command) autoMode.getSelected();
     	if (autonomousCommand != null) autonomousCommand.start();
     }
 
