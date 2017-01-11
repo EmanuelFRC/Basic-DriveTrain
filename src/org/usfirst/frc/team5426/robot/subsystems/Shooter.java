@@ -91,11 +91,12 @@ public class Shooter extends Subsystem {
     	
     	SmartDashboard.putNumber("speed", speed);    	
     	
-    	if ((mArmLimitSwitch.get() && (speed<0))) {
+    	/*if ((mArmLimitSwitch.get() && (speed<0))) {
     		stopShaftMotor();
     	} else {
     		mShaftMotor.set(speed);
-    	}
+    	}*/
+    	mShaftMotor.set(speed);
 	}
 	
 	public void stopShaftMotor() {

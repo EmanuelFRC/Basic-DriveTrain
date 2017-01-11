@@ -52,7 +52,6 @@ public abstract class CommandBase extends Command {
 	        SmartDashboard.putNumber("Left Axis X", OI.getLeftAxisX());
 	        SmartDashboard.putNumber("Right Axis Y", OI.getRightAxisY());
 	        
-	        SmartDashboard.putBoolean("Locked", LockArm.locked);
 	        
 	       SmartDashboard.putBoolean("Arm Limit Switch", shooter.getArmLimitSwitch().get());
 	       // SmartDashboard.putBoolean("shooterLimitSwitch", SetShootArm.getLimitSwitch().get());

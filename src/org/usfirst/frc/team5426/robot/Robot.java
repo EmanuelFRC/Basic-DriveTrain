@@ -41,6 +41,7 @@ public class Robot extends IterativeRobot {
     	autoMode.addObject("Autonomous Straight", new AutonomousStraight());
     	autoMode.addObject("Autonomous Rock Wall", new AutonomousRockWall());
     	autoMode.addObject("Autonomous Balance", new AutonomousBalance());
+    	autoMode.addObject("Autonomous Reverse", new AutonomousReverse());
     	SmartDashboard.putData("Autonomous Mode: ", autoMode);
     }
     

@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team5426.robot.commands.IntakeBall;
 import org.usfirst.frc.team5426.robot.commands.LiftDown;
 import org.usfirst.frc.team5426.robot.commands.LiftUp;
-import org.usfirst.frc.team5426.robot.commands.LockArm;
 import org.usfirst.frc.team5426.robot.commands.SetShootArm;
 import org.usfirst.frc.team5426.robot.commands.ShootBall;
 import org.usfirst.frc.team5426.robot.triggers.BallNearby;
@@ -55,12 +54,12 @@ public class OI {
         ... and more http://wpilib.screenstepslive.com/s/3120/m/7952/l/97457-running-commands-on-joystick-input
         */
 
-    	buttonA.whileActive(new IntakeBall(1));
-    	buttonB.whileActive(new ShootBall(1));
+    	//buttonA.whileActive(new IntakeBall(1));
+    	//buttonB.whileActive(new ShootBall(1));
     	buttonX.whileActive(new LiftDown(1));
     	buttonY.whileActive(new LiftUp(1));
     	//rightBumper.whileActive(new SetShootArm());
-    	rightBumper.toggleWhenPressed(new LockArm());
+    	//rightBumper.toggleWhenPressed(new LockArm());
     	
     	logitechTrigger.whileActive(new ShootBall(1));
     	logitechSide.whileActive(new IntakeBall(1));

@@ -22,7 +22,6 @@ public class ShootBall extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return isTimedOut();
 	}
 

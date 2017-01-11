@@ -17,12 +17,10 @@ public class IntakeBall extends CommandBase {
 
 	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return isTimedOut();
 	}
 

@@ -20,8 +20,9 @@ public class AutonomousLowbar extends CommandGroup {
 		 *  for the robot to reach the first obstacle.
 		 */
 		addSequential(new AutonomousLift(1, 3.75));
-		addSequential(new AutonomousDrive(0.92, 0, 2));
-		addSequential(new AutonomousDrive(-0.92, 0, 2.5));
+		addSequential(new AutonomousDrive(0.92, 0, 1.25));
+		addSequential(new AutonomousShoot(1));
+		addSequential(new AutonomousDrive(-0.91, 0, 1.35));
 	}
 
 }
